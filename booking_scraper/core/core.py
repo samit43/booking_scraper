@@ -54,7 +54,7 @@ def get_neighborhood_structures(soup_detail):
         for neighborhood in soup_detail.select_one('div.hp-poi-content-container.hp-poi-content-container--column.clearfix').findAll('li', {"class": "bui-list__item"}):
             neighborhood_structures = {}
 
-            if neighborhood.find("div", {"class": "hp-poi-list__description"}).contents[0].strip() is '':
+            if neighborhood.find("div", {"class": "hp-poi-list__description"}).contents[0].strip() == '':
                 neighborhood_structures['name'] = neighborhood.find("div", {"class": "hp-poi-list__description"}).span.text.strip()
             else:
                 neighborhood_structures['name'] = neighborhood.find("div", {"class": "hp-poi-list__description"}).contents[0].strip()
